@@ -1,0 +1,108 @@
+.side-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+
+    z-index: 2;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        will-change: opacity;
+        transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1);
+    }
+
+    @at-root #{&}__container {
+        // position: relative;
+        // width: 90%;
+        // max-width: 400px;
+
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 60%;
+
+        background: #fff;
+        // height: 100%;
+        box-shadow: 2px 0 12px rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+        // transform: translateX(-110%);
+
+        transform: translateY(110%);
+
+        z-index: 3;
+    }
+
+    @at-root #{&}--visible {
+        pointer-events: auto;
+
+        &::before {
+            opacity: 1;
+        }
+
+        .side-nav__container {
+            transform: none;
+        }
+    }
+
+    @at-root #{&}--animatable {
+        
+        .side-nav__container {
+            transition: transform 0.3s cubic-bezier(0, 0, 0.3, 1);
+        }
+    }
+
+    @at-root #{&}__hide {
+        position: absolute;
+        // right: 16px;
+        // top: 16px;
+        right: 5px;
+        top: -30px;
+        background: none;
+        border: none;
+        color: #fff;
+    }
+
+    @at-root #{&}__header {
+        font-size: 24px;
+        height: 200px;
+        background: #309;
+        color: #fff;
+        padding: 16px;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    @at-root #{&}__content {
+        flex: 1;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+
+        li {
+            height: 32px;
+            line-height: 32px;
+            padding: 0 16px;
+
+            &:hover {
+                background: #ccc;
+            }
+        }
+    }
+}

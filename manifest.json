@@ -1,0 +1,16 @@
+{
+    "name": "Beer_Search",
+    "short_name": "Beer_Search",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "theme_color": "#673ab7",
+    "background_color": "#673ab7",
+    "icons": [
+        {
+            "src": "/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
